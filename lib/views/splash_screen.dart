@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/async_patch.dart' hide Timer;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     super.initState();
 
-    Timer(Duration(seconds: 2), () {
+    Timer(Duration(seconds: 30), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),
