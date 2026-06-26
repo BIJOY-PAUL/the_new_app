@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:my_news_app/models/news_channels_headlines_model.dart';
 import 'package:my_news_app/view_model/news_view_model.dart';
+import 'package:my_news_app/views/categores_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,7 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CategoresScreen()),
+            );
+          },
           icon: Image.asset('images/category_icon.png', height: 30, width: 30),
         ),
         title: Center(
@@ -49,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           PopupMenuButton<Filterlist>(
             initialValue: selectedMenu,
 
-            color: Colors.blue.shade400,
+            color: Colors.green.shade400,
             icon: Icon(Icons.more_vert, color: Colors.black),
             onSelected: (Filterlist item) {
               setState(() {
@@ -132,6 +138,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: CachedNetworkImage(
+                                    height: height * .18,
+                                    width: width * .3,
                                     imageUrl: snapshot
                                         .data!
                                         .articles![index]
